@@ -310,7 +310,11 @@ if exists('g:gruvbox_number_column')
   let s:number_column = get(s:gb, g:gruvbox_number_column)
 endif
 
-let s:sign_column = s:bg1
+if g:gruvbox_contrast_dark == 'hard'
+  let s:sign_column = s:gb.dark0
+else
+  let s:sign_column = s:bg1
+endif
 
 if exists('g:gitgutter_override_sign_column_highlight') &&
       \ g:gitgutter_override_sign_column_highlight == 1
@@ -555,7 +559,11 @@ call s:HL('LineNr', s:bg4, s:number_column)
 call s:HL('SignColumn', s:none, s:sign_column)
 
 " Line used for closed folds
-call s:HL('Folded', s:gray, s:bg1, s:italic)
+if g:gruvbox_contrast_dark == 'hard'
+  call s:HL('Folded', s:gray, s:gb.dark0, s:italic)
+else
+  call s:HL('Folded', s:gray, s:bg1, s:italic)
+endif
 " Column where folds are displayed
 call s:HL('FoldColumn', s:gray, s:bg1)
 
