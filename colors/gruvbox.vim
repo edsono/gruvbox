@@ -474,7 +474,11 @@ endif
 
 if version >= 700
   " Screen line that the cursor is
-  call s:HL('CursorLine',   s:none, s:bg1)
+  if g:gruvbox_contrast_dark == 'hard'
+    call s:HL('CursorLine',   s:none, s:gb.dark0)
+  else
+    call s:HL('CursorLine',   s:none, s:bg1)
+  endif
   " Screen column that the cursor is
   hi! link CursorColumn CursorLine
 
@@ -503,7 +507,11 @@ endif
 hi! link NonText GruvboxBg2
 hi! link SpecialKey GruvboxBg2
 
-call s:HL('Visual',    s:none,  s:bg3, s:invert_selection)
+if g:gruvbox_contrast_dark == 'hard'
+  call s:HL('Visual',    s:none,  s:bg1, s:invert_selection)
+else
+  call s:HL('Visual',    s:none,  s:bg3, s:invert_selection)
+endif
 hi! link VisualNOS Visual
 
 call s:HL('Search',    s:yellow, s:bg0, s:inverse)
@@ -577,24 +585,24 @@ call s:HL('Todo', s:vim_fg, s:vim_bg, s:bold . s:italic)
 call s:HL('Error', s:red, s:vim_bg, s:bold . s:inverse)
 
 " Generic statement
-hi! link Statement GruvboxRed
+hi! link Statement GruvboxOrange
 " if, then, else, endif, swicth, etc.
-hi! link Conditional GruvboxRed
+hi! link Conditional GruvboxOrange
 " for, do, while, etc.
-hi! link Repeat GruvboxRed
+hi! link Repeat GruvboxOrange
 " case, default, etc.
-hi! link Label GruvboxRed
+hi! link Label GruvboxOrange
 " try, catch, throw
-hi! link Exception GruvboxRed
+hi! link Exception GruvboxOrange
 " sizeof, "+", "*", etc.
 hi! link Operator Normal
 " Any other keyword
-hi! link Keyword GruvboxRed
+hi! link Keyword GruvboxOrange
 
 " Variable name
 hi! link Identifier GruvboxBlue
 " Function name
-hi! link Function GruvboxGreenBold
+hi! link Function GruvboxYellow
 
 " Generic preprocessor
 hi! link PreProc GruvboxAqua
@@ -618,11 +626,11 @@ else
   call s:HL('String',  s:fg1, s:bg1, s:italicize_strings)
 endif
 " Boolean constant: TRUE, false
-hi! link Boolean GruvboxPurple
+hi! link Boolean GruvboxBlue
 " Number constant: 234, 0xff
-hi! link Number GruvboxPurple
+hi! link Number GruvboxBlue
 " Floating point constant: 2.3e10
-hi! link Float GruvboxPurple
+hi! link Float GruvboxBlue
 
 " Generic type
 hi! link Type GruvboxYellow
@@ -1007,20 +1015,21 @@ hi! link cStructure GruvboxOrange
 hi! link pythonBuiltin GruvboxOrange
 hi! link pythonBuiltinObj GruvboxOrange
 hi! link pythonBuiltinFunc GruvboxOrange
-hi! link pythonFunction GruvboxAqua
+hi! link pythonFunction GruvboxYellow
 hi! link pythonDecorator GruvboxRed
-hi! link pythonInclude GruvboxBlue
-hi! link pythonImport GruvboxBlue
+hi! link pythonInclude GruvboxRed
+hi! link pythonImport GruvboxOrange
 hi! link pythonRun GruvboxBlue
-hi! link pythonCoding GruvboxBlue
-hi! link pythonOperator GruvboxRed
+hi! link pythonCoding GruvboxGray
+hi! link pythonOperator GruvboxOrange
 hi! link pythonException GruvboxRed
 hi! link pythonExceptions GruvboxPurple
-hi! link pythonBoolean GruvboxPurple
+hi! link pythonBoolean GruvboxAqua
 hi! link pythonDot GruvboxFg3
 hi! link pythonConditional GruvboxRed
 hi! link pythonRepeat GruvboxRed
 hi! link pythonDottedName GruvboxGreenBold
+hi! link pythonBytesEscape GruvboxYellow
 
 " }}}
 " CSS: {{{
