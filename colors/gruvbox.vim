@@ -505,7 +505,7 @@ if version >= 703
   call s:HL('Conceal', s:blue, s:none)
 
   " Line number of CursorLine
-  call s:HL('CursorLineNr', s:yellow, s:bg1)
+  call s:HL('CursorLineNr', s:yellow, s:bg0)
 endif
 
 hi! link NonText GruvboxBg2
@@ -980,6 +980,8 @@ hi! link vimFuncSID GruvboxFg3
 hi! link vimSetSep GruvboxFg3
 hi! link vimSep GruvboxFg3
 hi! link vimContinue GruvboxFg3
+hi! link vimOption GruvboxRed
+hi! link vimVar GruvboxYellow
 
 " }}}
 " Clojure: {{{
