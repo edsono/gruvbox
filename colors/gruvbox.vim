@@ -1035,10 +1035,10 @@ hi! link pythonOperator GruvboxOrange
 hi! link pythonException GruvboxRed
 hi! link pythonExceptions GruvboxPurple
 hi! link pythonBoolean GruvboxAqua
-hi! link pythonDot GruvboxFg3
 hi! link pythonConditional GruvboxRed
 hi! link pythonRepeat GruvboxRed
 hi! link pythonDottedName GruvboxGreenBold
+" hi! link pythonDot GruvboxFg3
 hi! link pythonBytesEscape GruvboxYellow
 
 " }}}
